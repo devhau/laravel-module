@@ -1,0 +1,53 @@
+{
+    "name": "devhau/laravel-module",
+    "description": "",
+    "keywords": [
+        "devhau",
+        "core"
+    ],
+    "homepage": "https://github.com/devhau/laravel-module",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "nguyen van hau",
+            "email": "nguyenvanhaudev@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.1",
+        "livewire/livewire": "^2.10",
+        "maatwebsite/excel": "^3.1",
+        "phpoffice/phpspreadsheet": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "DevHau\\Modules\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DevHau\\Modules\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DevHau\\Modules\\LaravelModulesServiceProvider",
+                "Maatwebsite\\Excel\\ExcelServiceProvider"
+            ],
+            "aliases": {
+                "Core": "DevHau\\Modules\\CoreFacade",
+                "Excel": "Maatwebsite\\Excel\\Facades\\Excel"
+            }
+        }
+    }
+}

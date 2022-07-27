@@ -1,0 +1,34 @@
+$radius: 0.2rem;
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+.modal {
+    .modal-dialog {
+        .modal-content {
+            border-radius: $radius;
+            .modal-header {
+                padding: 0px;
+                .btn-close {
+                    margin: 2px;
+                }
+                .modal-title {
+                    padding: 5px;
+                }
+            }
+            .modal-body {
+                padding: 0px;
+            }
+            .modal-footer {
+                padding: 0px;
+            }
+        }
+    }
+}
+.btn {
+    border-radius: $radius;
+}
+.error {
+    color: red;
+}
