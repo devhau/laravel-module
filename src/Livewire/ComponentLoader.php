@@ -45,9 +45,17 @@ class ComponentLoader
                     ->explode('.')
                     ->map([Str::class, 'kebab'])
                     ->implode('.');
+                // fix class namespace
+                $alias_class =  trim(Str::of($class)
+                    ->replace(['/', '\\'], '.')
+                    ->explode('.')
+                    ->map([Str::class, 'kebab'])
+                    ->implode('.'), '.');
                 if (Str::endsWith($class, ['\Index', '\index'])) {
                     Livewire::component(Str::beforeLast($alias, '.index'), $class);
+                    Livewire::component(Str::beforeLast($alias_class, '.index'), $class);
                 }
+                Livewire::component($alias_class, $class);
                 Livewire::component($alias, $class);
             });
     }
