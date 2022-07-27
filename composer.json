@@ -41,12 +41,13 @@
     "extra": {
         "laravel": {
             "providers": [
+				"Livewire\\LivewireServiceProvider",
                 "DevHau\\Modules\\LaravelModulesServiceProvider",
                 "Maatwebsite\\Excel\\ExcelServiceProvider"
             ],
             "aliases": {
-                "Core": "DevHau\\Modules\\CoreFacade",
-                "Excel": "Maatwebsite\\Excel\\Facades\\Excel"
+                "Excel": "Maatwebsite\\Excel\\Facades\\Excel",
+				"Livewire": "Livewire\\Livewire"
             }
         }
     }
