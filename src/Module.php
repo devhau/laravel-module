@@ -310,7 +310,7 @@ abstract class Module implements ArrayAccess
     }
     public function registerLivewire(): void
     {
-        ComponentLoader::Register($this->getPath(), $this->getNameSpace(), $this->getSnakeName());
+        ComponentLoader::Register($this->getPath(), $this->getNameSpace(), $this->getLowerName());
     }
     /**
      * Register the files from this module.
