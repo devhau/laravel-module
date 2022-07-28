@@ -21,7 +21,7 @@ class ModuleLoader
     }
     public function getDataByKey($key, $sub = null)
     {
-        return getValueByKey($this->datas, $key . ($sub ?? ''), null) ?? [];
+        return getValueByKey($this->datas, $key . ($sub ?? ''), null);
     }
     public function loadFromFile($file)
     {
