@@ -4,6 +4,7 @@ return [
     'admin' => [
         'title' => 'ERP System',
         'admin' => true,
+        'body-class' => 'sidebar-mini',
         'brand' => [
             'none' => 'ERP System',
             'mini' => 'ERP'

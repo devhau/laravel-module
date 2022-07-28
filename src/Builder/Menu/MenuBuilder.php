@@ -135,7 +135,7 @@ class MenuBuilder
             return $this->data['link'];
         }
         if ($this->checkValue('router')) {
-            return  route($this->data['router']['name'], $this->data['router']['params']);
+            return route($this->data['router']['name'], $this->data['router']['params']);
         }
         return '';
     }
@@ -194,8 +194,8 @@ class MenuBuilder
         }
     }
     private static $menuPosition = array();
-//top sidebar
-    public static function Menu($position = 'top'): self
+    //top sidebar
+    public static function Menu($position = 'sidebar'): self
     {
         return self::$menuPosition[$position] ?? (self::$menuPosition[$position] = new self(false));
     }
