@@ -6,7 +6,6 @@ use DevHau\Modules\Builder\Modal\ModalComponent;
 use DevHau\Modules\Models\Schedule;
 use DevHau\Modules\Traits\UseModuleIndex;
 use DevHau\Modules\Schedule\Scheduling;
-use Illuminate\Support\Facades\Log;
 
 class Index extends ModalComponent
 {
