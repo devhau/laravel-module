@@ -11,7 +11,6 @@ class History extends ModalComponent
     use UseModuleIndex;
     public function mount()
     {
-        $this->permission="admin.schedule.history";
         $this->isCheckDisableModule = false;
         return $this->LoadModule('schedule_history');
     }

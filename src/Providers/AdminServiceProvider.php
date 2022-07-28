@@ -67,9 +67,9 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(ScheduleServiceProvider::class);
         if (!$this->app->runningInConsole()) {
             ComponentLoader::Register(__DIR__ . '/..', 'DevHau\\Modules', 'devhau-module');
-            $this->app->register(ScheduleServiceProvider::class);
             $this->app->register(SeedServiceProvider::class);
             $this->app->register(AuthServiceProvider::class);
             Blade::component('devhau-module-script', ScriptComponent::class);
