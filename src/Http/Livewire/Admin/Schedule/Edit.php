@@ -31,6 +31,7 @@ class Edit extends ModalComponent
     public function beforeBinding()
     {
         $this->CheckNullAndEmptySetValue([
+            'log_success',
             'sendmail_success',
             'run_in_background',
             'even_in_maintenance_mode',
