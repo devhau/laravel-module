@@ -132,8 +132,7 @@ class AdminServiceProvider extends ServiceProvider
                 });
             });
             // Automatically apply the package configuration
-            $this->mergeConfigFrom(__DIR__ . '/../../config/menu.php', 'devhau-menu');
-            ModuleLoader::Table()->loadFromFile(__DIR__ . '/../../config/table.php');
+            ModuleLoader::Load(__DIR__ . '/../../config/');
         } else {
             include_once(__DIR__ . '/../../database/seeders/AuthTableSeeder.php');
         }

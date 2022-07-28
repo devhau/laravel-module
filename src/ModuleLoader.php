@@ -55,4 +55,9 @@ class ModuleLoader
     {
         return self::getModule(self::module_setting);
     }
+    public static function Load($folderConfig)
+    {
+        self::Table()->loadFromFile($folderConfig . 'table.php');
+        self::Theme()->loadFromFile($folderConfig . 'theme.php');
+    }
 }
