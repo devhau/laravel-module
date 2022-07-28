@@ -47,10 +47,6 @@ return [
             'title' => 'Lệnh mở rộng chạy'
         ],
         [
-            'field' => 'options',
-            'title' => 'Lệnh mở rộng chạy'
-        ],
-        [
             'field' => 'expression',
             'title' => 'Chạy tiếp theo vào lúc',
             'funcCell' => function ($row, $column) {
