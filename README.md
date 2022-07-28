@@ -1,4 +1,4 @@
-# Very short description of the package
+# devhau/laravel-module
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/devhau/laravel-module.svg?style=flat-square)](https://packagist.org/packages/devhau/laravel-module)
 [![Total Downloads](https://img.shields.io/packagist/dt/devhau/laravel-module.svg?style=flat-square)](https://packagist.org/packages/devhau/laravel-module)
