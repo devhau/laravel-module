@@ -11,7 +11,8 @@ class Theme extends SettingComponent
 {
     public function getOptionProperty()
     {
-        $themes = ThemeCore::getList();
+        $admin = ThemeCore::getList(1);
+        $home = ThemeCore::getList(-1);
         return [
             'fields' => [
                 [
@@ -36,8 +37,8 @@ class Theme extends SettingComponent
                     'field' => 'theme_admin',
                     'fieldType' => FieldType::Dropdown,
                     'column' => FieldSize::Col12,
-                    'funcData' => function () use ($themes) {
-                        return $themes;
+                    'funcData' => function () use ($admin) {
+                        return $admin;
                     }
                 ],
                 [
@@ -45,8 +46,8 @@ class Theme extends SettingComponent
                     'field' => 'theme_site',
                     'fieldType' => FieldType::Dropdown,
                     'column' => FieldSize::Col12,
-                    'funcData' => function () use ($themes) {
-                        return $themes;
+                    'funcData' => function () use ($home) {
+                        return $home;
                     }
                 ]
             ]
