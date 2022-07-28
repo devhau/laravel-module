@@ -267,6 +267,8 @@ abstract class Module implements ArrayAccess
     public function register(): void
     {
         $this->registerTables();
+        $this->registerSettings();
+        $this->registerThemes();
         $this->registerLivewire();
         $this->registerAliases();
 
@@ -306,7 +308,15 @@ abstract class Module implements ArrayAccess
 
     public function registerTables(): void
     {
-        TableLoader::getInstance()->loadFromFile($this->getPath() . '/config/table.php');
+        ModuleLoader::Table()->loadFromFile($this->getPath() . '/config/table.php');
+    }
+    public function registerThemes(): void
+    {
+        ModuleLoader::Theme()->loadFromFile($this->getPath() . '/config/theme.php');
+    }
+    public function registerSettings(): void
+    {
+        ModuleLoader::Setting()->loadFromFile($this->getPath() . '/config/setting.php');
     }
     public function registerLivewire(): void
     {

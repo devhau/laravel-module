@@ -10,7 +10,7 @@ use DevHau\Modules\Components\ScriptComponent;
 use DevHau\Modules\Components\StyleComponent;
 use DevHau\Modules\Directives\CoreBladeDirectives;
 use DevHau\Modules\Livewire\ComponentLoader;
-use DevHau\Modules\TableLoader;
+use DevHau\Modules\ModuleLoader;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -87,7 +87,7 @@ class AdminServiceProvider extends ServiceProvider
             })->AddItem(function ($item) {
                 $item->setName('Danh mục');
                 $item->setIcon('bi bi-box2-fill');
-                foreach (TableLoader::getInstance()->getTables() as $key => $module) {
+                foreach (ModuleLoader::Table()->getData() as $key => $module) {
                     if (!getValueByKey($module, 'DisableModule', false)) {
                         $item->AddItem(function ($item) use ($module, $key) {
                             $item->setName($module['title']);
@@ -133,7 +133,7 @@ class AdminServiceProvider extends ServiceProvider
             });
             // Automatically apply the package configuration
             $this->mergeConfigFrom(__DIR__ . '/../../config/menu.php', 'devhau-menu');
-            TableLoader::getInstance()->loadFromFile(__DIR__ . '/../../config/table.php');
+            ModuleLoader::Table()->loadFromFile(__DIR__ . '/../../config/table.php');
         } else {
             include_once(__DIR__ . '/../../database/seeders/AuthTableSeeder.php');
         }

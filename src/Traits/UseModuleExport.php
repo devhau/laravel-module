@@ -3,7 +3,7 @@
 namespace DevHau\Modules\Traits;
 
 use DevHau\Modules\Builder\Modal\ModalSize;
-use DevHau\Modules\TableLoader;
+use DevHau\Modules\ModuleLoader;
 
 trait UseModuleExport
 {
@@ -15,7 +15,7 @@ trait UseModuleExport
     }
     public function getOptionProperty()
     {
-        return TableLoader::getInstance()->getTableByKey($this->module);
+        return ModuleLoader::Table()->getDataByKey($this->module);
     }
     public function LoadModule($module)
     {

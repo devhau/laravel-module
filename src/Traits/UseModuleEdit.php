@@ -3,10 +3,8 @@
 namespace DevHau\Modules\Traits;
 
 use DevHau\Modules\Builder\Modal\ModalSize;
-use DevHau\Modules\TableLoader;
-use Illuminate\Support\Facades\Log;
+use DevHau\Modules\ModuleLoader;
 use Livewire\WithFileUploads;
-use PhpOffice\PhpSpreadsheet\Calculation\TextData\Replace;
 
 trait UseModuleEdit
 {
@@ -21,7 +19,7 @@ trait UseModuleEdit
     }
     public function getOptionProperty()
     {
-        return TableLoader::getInstance()->getTableByKey($this->module);
+        return ModuleLoader::Table()->getDataByKey($this->module);
     }
     public function getFieldsProperty()
     {

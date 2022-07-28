@@ -18,7 +18,7 @@
             <div class="col-9">
                 @foreach($settings as $item)
                 <div class="tab-content {{$item['key']==$settingKey?'active':''}} form-setting">
-                    @livewire($item['key'])
+                    @livewire($item['key'],['setting'=>$item['params']])
                 </div>
                 @endforeach
             </div>

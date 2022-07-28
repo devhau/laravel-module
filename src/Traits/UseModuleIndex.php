@@ -3,7 +3,7 @@
 namespace DevHau\Modules\Traits;
 
 use DevHau\Modules\Builder\Modal\ModalSize;
-use DevHau\Modules\TableLoader;
+use DevHau\Modules\ModuleLoader;
 use Livewire\WithPagination;
 
 trait UseModuleIndex
@@ -52,7 +52,7 @@ trait UseModuleIndex
     public function getOptionProperty()
     {
         if (is_null($this->option_temp)) {
-            $option = TableLoader::getInstance()->getTableByKey($this->module);
+            $option = ModuleLoader::Table()->getDataByKey($this->module);
             if (!isset($option['fields'])) $option['fields'] = [];
             $this->option_temp = $option;
             if ($option && $this->checkAction()) {

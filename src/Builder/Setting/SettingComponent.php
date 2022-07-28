@@ -8,12 +8,14 @@ abstract class SettingComponent extends Component
 {
     public $viewInclude = [];
     public $data = [];
+    public $setting_config = [];
     public function getOptionProperty()
     {
-        return [];
+        return $this->setting_config;
     }
-    public function mount()
+    public function mount($setting = [])
     {
+        $this->setting_config = $setting;
         foreach (getValueByKey($this->option, 'fields', []) as $item) {
             $this->{$item['field']} = setting($item['field']);
         }

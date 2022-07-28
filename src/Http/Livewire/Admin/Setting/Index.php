@@ -3,6 +3,7 @@
 namespace DevHau\Modules\Http\Livewire\Admin\Setting;
 
 use DevHau\Modules\Builder\Modal\ModalComponent;
+use DevHau\Modules\ModuleLoader;
 
 class Index extends ModalComponent
 {
@@ -17,6 +18,14 @@ class Index extends ModalComponent
         $this->setTitle('Thiết lập');
         $this->settings = Index::default;
         $this->settingKey = $this->settings[0]['key'];
+        foreach (ModuleLoader::Setting()->getData() as $item) {
+            $this->settings[] = [
+                'name' => getValueByKey($item, 'name', 'setting'),
+                'icon' => getValueByKey($item, 'icon', '<i class="bi bi-gear"></i>'),
+                'key' => getValueByKey($item, 'key', 'devhau-module::admin.setting.config'),
+                'params' => $item,
+            ];
+        }
     }
     public function SetKey($key)
     {

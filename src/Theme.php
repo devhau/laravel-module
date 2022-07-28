@@ -119,7 +119,7 @@ class Theme
     }
     public static function getTheme($sub = "", $default = '')
     {
-        return config("devhau-module.theme." . self::$theme . $sub) ?? $default;
+        return ModuleLoader::Theme()->getDataByKey(self::$theme, $sub) ?? $default;
     }
     public static function Layout()
     {
@@ -140,13 +140,15 @@ class Theme
     }
     public static function None()
     {
-        return config('devhau-module::theme.none');
+        return ModuleLoader::Theme()->getDataByKey('none');
     }
-    public static function getList()
+    public static function getList($status = 0)
     {
-        $theme = config('devhau-module.theme');
+        $theme = ModuleLoader::Theme()->getData();
         $themes = [];
         foreach ($theme as $key => $item) {
+            if ($status == 1 && (!isset($item['admin']) || $item['admin'] != true)) continue;
+            if ($status == -1 && isset($item['admin']) && $item['admin'] == true) continue;
             $themes[] = [
                 'id' => $key,
                 'text' => $key
