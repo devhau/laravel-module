@@ -25,10 +25,10 @@ class Edit extends ModalComponent
     {
         $this->LoadModule($module, $dataId);
         $this->commands = CommandService::get();
-        if (!$this->command) {
+        if (!$this->command || !isset($this->commands[$this->command])) {
             $this->command = $this->commands->first()['name'];
-            $this->updatedCommand($this->command);
         }
+        $this->updatedCommand($this->command);
     }
     public function beforeBinding()
     {
