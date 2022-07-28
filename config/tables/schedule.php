@@ -9,6 +9,8 @@ return [
     'title' => 'Schedule',
     'emptyData' => 'Không có dữ liệu',
     'enableAction' => true,
+    'formInclude' => 'devhau-module::admin.schedule.edit',
+    'viewEdit' => 'devhau-module::admin.schedule.edit',
     'action' => [
         'title' => '#',
         'add' => true,
@@ -53,7 +55,71 @@ return [
             'title' => 'Chạy tiếp theo vào lúc',
             'funcCell' => function ($row, $column) {
                 return CronNextRunDate($row['expression']);
-            }
+            },
+            'default' => '*/5 * * * *'
         ],
+        [
+            'field' => 'sendmail_success',
+            'view' => false
+        ],
+        [
+            'field' => 'run_in_background',
+            'view' => false,
+        ],
+        [
+            'field' => 'email_output',
+            'view' => false
+        ],
+        [
+            'field' => 'webhook_before',
+            'view' => false
+        ],
+        [
+            'field' => 'webhook_after',
+            'view' => false
+        ],
+        [
+            'field' => 'sendmail_error',
+            'view' => false,
+        ],
+        [
+            'field' => 'even_in_maintenance_mode',
+            'view' => false,
+        ],
+        [
+            'field' => 'without_overlapping',
+            'view' => false,
+        ],
+        [
+            'field' => 'on_one_server',
+            'view' => false
+        ],
+        [
+            'field' => 'log_success',
+            'view' => false
+        ],
+        [
+            'field' => 'groups',
+            'view' => false
+        ],
+        [
+            'field' => 'status',
+            'view' => false,
+            'default' => true
+        ],
+        [
+            'field' => 'environments',
+            'view' => false,
+        ],
+        [
+            'field' => 'params',
+            'view' => false,
+            'default' => []
+        ],
+        [
+            'field' => 'options',
+            'view' => false,
+            'default' => []
+        ]
     ]
 ];

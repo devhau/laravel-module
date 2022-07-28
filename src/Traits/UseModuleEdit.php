@@ -86,6 +86,9 @@ trait UseModuleEdit
             $data = new (app($option['model']));
         }
         $fields = $this->getFieldsProperty();
+        if (method_exists($this, 'beforeBinding')) {
+            $this->beforeBinding();
+        }
         foreach ($fields as $item) {
             if (isset($item['field']) && $item['field'] != '') {
                 $valuePreview = $this->{$item['field']};
@@ -95,6 +98,9 @@ trait UseModuleEdit
                 }
                 $data->{$item['field']} =  $valuePreview;
             }
+        }
+        if (method_exists($this, 'beforeSave')) {
+            $this->beforeSave();
         }
         $data->save();
         $this->refreshData(['module' => $this->module]);
@@ -107,5 +113,13 @@ trait UseModuleEdit
             'option' => $this->option,
             'fields' => $this->fields
         ]);
+    }
+    public function CheckNullAndEmptySetValue($arrayField, $default)
+    {
+        foreach ($arrayField as $field) {
+            if (isset($this->{$field}) && ($this->{$field} == null || $this->{$field} == '')) {
+                $this->{$field} = $default;
+            }
+        }
     }
 }

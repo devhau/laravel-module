@@ -35,6 +35,7 @@ trait UseModuleIndex
     private $option_temp = null;
     public $sort = [];
     public $filter = [];
+    public $viewEdit = '';
     public function doSort($field, $sort)
     {
         $this->sort = [];
@@ -55,6 +56,7 @@ trait UseModuleIndex
             $option = ModuleLoader::Table()->getDataByKey($this->module);
             if (!isset($option['fields'])) $option['fields'] = [];
             $this->option_temp = $option;
+            $this->viewEdit = getValueByKey($option, 'viewEdit', 'devhau-module::admin.table.edit');
             if ($option && $this->checkAction()) {
                 $option['fields'][] =  [
                     'title' => getValueByKey($option, 'action.title', '#'),
@@ -63,7 +65,7 @@ trait UseModuleIndex
                     'funcCell' => function ($row, $column) use ($option) {
                         $html = '';
                         if ($this->checkEdit()) {
-                            $html = $html . '<button class="btn btn-sm btn-success" wire:openmodal=\'devhau-module::admin.table.edit({"module":"' . $this->module . '","dataId":' . $row[getValueByKey($option, 'modalkey', 'id')] . '})\'><i class="bi bi-pencil-square"></i> <span>Sửa</span></button>';
+                            $html = $html . '<button class="btn btn-sm btn-success" wire:openmodal=\'' . $this->viewEdit . '({"module":"' . $this->module . '","dataId":' . $row[getValueByKey($option, 'modalkey', 'id')] . '})\'><i class="bi bi-pencil-square"></i> <span>Sửa</span></button>';
                         }
                         if ($this->checkRemove()) {
                             $html = $html . ' <button class="btn btn-sm btn-danger" data-confirm-message="bạn có muốn xóa không?" wire:confirm=\'RemoveRow(' .  $row[getValueByKey($option, 'modalkey', 'id')] . ')\'><i class="bi bi-trash"></i> <span>Xóa</span></button>';
@@ -128,7 +130,7 @@ trait UseModuleIndex
         return $this->viewModal($this->getView(), null, null, [
             'data' => $this->getData(),
             'option' => $this->option,
-            'viewEdit' => 'devhau-module::admin.table.edit',
+            'viewEdit' => $this->viewEdit,
             'checkAdd' => $this->checkAdd(),
             'checkInportExcel' => $this->checkInportExcel(),
             'checkExportExcel' => $this->checkExportExcel()

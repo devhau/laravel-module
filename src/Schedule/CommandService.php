@@ -58,8 +58,8 @@ class CommandService
                     'name' => $command->getName(),
                     'description' => $command->getDescription(),
                     'signature' => $command->getSynopsis(),
-                    'arguments' => $this->getArguments($command),
-                    'options' => $this->getOptions($command),
+                    'arguments' => self::getArguments($command),
+                    'options' => self::getOptions($command),
                 ];
             });
     }
