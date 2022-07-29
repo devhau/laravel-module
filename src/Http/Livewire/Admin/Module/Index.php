@@ -20,9 +20,19 @@ class Index extends ModalComponent
         $this->isCheckDisableModule = false;
         return $this->LoadModule('module');
     }
-    public function ChangeStatus($module_name)
+    public function RemoveRow($module_name)
     {
         $module =  get_module($module_name);
+        if ($module) {
+            if ($module->delete()) {
+                $this->ShowMessage("$module_name đã xóa thành công");
+            }
+        }
+        $this->ShowMessage("$module_name đã xóa thành công");
+    }
+    public function ChangeStatus($module_name)
+    {
+        $module =  get_module($module_name); 
         if ($module) {
             if ($module->isEnabled()) {
                 $module->setActive(false);

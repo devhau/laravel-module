@@ -26,20 +26,28 @@ return [
         'add' => false,
         'edit' => false,
         'delete' => false,
-        'export' => true,
+        'export' => false,
         'inport' => false,
         'append' => [
             [
                 'title' => 'Tạo File',
                 'icon' => '<i class="bi bi-magic"></i>',
                 'type' => 'update',
+                'class'=>'btn-primary',
                 'action' => function ($id) {
                     return 'wire:openmodal="devhau-module::admin.module.create-file({\'module\':\'' . $id . '\'})"';
+                }
+            ], [
+                'title' => 'Xóa module',
+                'icon' => '<i class="bi bi-eraser"></i>',
+                'type' => 'update',
+                'action' => function ($id) {
+                    return 'data-confirm-message="bạn có muốn xóa không? Lưu ý: không thể lấy lại khi xóa đi." wire:confirm=\'RemoveRow("' .  $id . '")\'';
                 }
             ],
             [
                 'title' => 'Tạo mới module',
-                'icon' => '<i class="bi bi-magic"></i>',
+                'icon' => '<i class="bi bi-folder-plus"></i>',
                 'class' => 'btn-primary',
                 'type' => 'new',
                 'action' => function () {
