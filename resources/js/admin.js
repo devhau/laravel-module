@@ -5,7 +5,9 @@ let initAdmin = () => {
         item.addEventListener('click', (e) => {
             if (document.querySelector('body').classList.contains('sidebar-mini')) {
                 document.querySelector('body').classList.remove('sidebar-mini');
+                localStorage.setItem('sidebar-mini', false);
             } else {
+                localStorage.setItem('sidebar-mini', true);
                 document.querySelector('body').classList.add('sidebar-mini')
             }
             e.stopImmediatePropagation();
@@ -13,6 +15,12 @@ let initAdmin = () => {
             e.preventDefault();
         });
     })
+    if (localStorage.getItem('sidebar-mini') == 'true' && !document.querySelector('body').classList.contains('sidebar-mini')) {
+        document.querySelector('body').classList.add('sidebar-mini');
+    }
+    if (localStorage.getItem('sidebar-mini') != 'true' && document.querySelector('body').classList.contains('sidebar-mini')) {
+        document.querySelector('body').classList.remove('sidebar-mini');
+    }
 }
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener("devhau:turbo", function (event) {
