@@ -33,6 +33,7 @@ return [
             [
                 'title' => 'Phân quyền',
                 'icon' => '<i class="bi bi-magic"></i>',
+                'class'=>'btn-primary',
                 'type' => 'update',
                 'action' => function ($id) {
                     return 'wire:openmodal="devhau-module::admin.user.permission({\'userId\':\'' . $id . '\'})"';

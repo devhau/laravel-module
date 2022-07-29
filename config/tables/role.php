@@ -26,6 +26,7 @@ return [
             ], [
                 'title' => 'Quản lý quyền',
                 'icon' => '<i class="bi bi-magic"></i>',
+                'class'=>'btn-primary',
                 'type' => 'new',
                 'action' => function () {
                     return 'wire:openmodal="devhau-module::admin.permission.index()"';
