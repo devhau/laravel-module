@@ -4,11 +4,10 @@ use DevHau\Modules\Builder\Form\FieldSize;
 use DevHau\Modules\Builder\Form\FieldType;
 
 return [
-    'model' => \DevHau\Modules\Models\User::class,
-    'modelkey' => 'name',
     'DisableModule' => true,
-    'title' => 'Tài khoản',
+    'title' => 'Quản lý Module',
     'emptyData' => 'Không có dữ liệu',
+    'modalkey' => 'name',
     'excel' => [
         'template' => '',
         'import' => \DevHau\Modules\Excel\ExcelInport::class,
@@ -31,12 +30,20 @@ return [
         'inport' => false,
         'append' => [
             [
+                'title' => 'Tạo File',
+                'icon' => '<i class="bi bi-magic"></i>',
+                'type' => 'update',
+                'action' => function ($id) {
+                    return 'wire:openmodal="devhau-module::admin.module.create-file({\'module\':\'' . $id . '\'})"';
+                }
+            ],
+            [
                 'title' => 'Tạo mới module',
                 'icon' => '<i class="bi bi-magic"></i>',
                 'class' => 'btn-primary',
                 'type' => 'new',
                 'action' => function () {
-                    return 'wire:openmodal="devhau-module::admin.permission.index()"';
+                    return 'wire:openmodal="devhau-module::admin.module.create()"';
                 }
             ]
         ]
@@ -94,7 +101,7 @@ return [
                 return '<button wire:click="ChangeStatus(\'' . $row['name'] . '\')" class="btn btn-danger btn-sm text-nowrap">Chưa kích hoạt</button>';
             },
             'field' => 'status',
-            
+
             'title' => '',
             'keyColumn' => 'row1_2',
         ]

@@ -13,7 +13,9 @@ class ConsoleServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        Commands\ClearAllCache::class
+        Commands\ClearAllCache::class,
+        Commands\ModuleMakeCommand::class
+
     ];
     public function register(): void
     {

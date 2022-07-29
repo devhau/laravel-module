@@ -1,0 +1,13 @@
+{
+    "name": "Dfdfff",
+    "alias": "dfdfff",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Dfdfff\\Providers\\DfdfffServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

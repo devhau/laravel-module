@@ -119,8 +119,8 @@ if (!function_exists('module_path')) {
     }
 }
 
-if (!function_exists('GetModule')) {
-    function GetModule($name)
+if (!function_exists('get_module')) {
+    function get_module($name)
     {
         return app('modules')->find($name);
     }

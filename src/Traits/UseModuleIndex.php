@@ -73,7 +73,7 @@ trait UseModuleIndex
                         $buttonAppend = getValueByKey($option, 'action.append', []);
                         foreach ($buttonAppend as $button) {
                             if (getValueByKey($button, 'type', '') == 'update') {
-                                $html = $html . ' <button class="btn btn-sm  ' . getValueByKey($option, 'class', 'btn-danger') . ' " ' .  ($button['action']($row[getValueByKey($option, 'modalkey', 'id')])) . '\'>' . getValueByKey($button, 'icon', '') . ' <span> ' . getValueByKey($button, 'title', '') . ' </span></button>';
+                                $html = $html . ' <button class="btn btn-sm  ' . getValueByKey($option, 'class', 'btn-danger') . ' " ' .  ($button['action']($row[getValueByKey($option, 'modalkey', 'id')], $row)) . '\'>' . getValueByKey($button, 'icon', '') . ' <span> ' . getValueByKey($button, 'title', '') . ' </span></button>';
                             }
                         }
                         return  $html;

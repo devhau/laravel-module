@@ -1,0 +1,13 @@
+{
+    "name": "Test334",
+    "alias": "test334",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Test334\\Providers\\Test334ServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

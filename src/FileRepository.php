@@ -437,7 +437,7 @@ abstract class FileRepository implements RepositoryInterface, Countable
      */
     public function config(string $key, $default = null)
     {
-        return $this->config->get('modules.' . $key, $default);
+        return $this->config->get('devhau-module.' . $key, $default);
     }
 
     /**

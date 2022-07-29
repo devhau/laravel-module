@@ -1,0 +1,23 @@
+{
+    "name": "devhau/dfdfff",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nguyen Van Hau",
+            "email": "nguyenvanhaudev@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Dfdfff\\": ""
+        }
+    }
+}

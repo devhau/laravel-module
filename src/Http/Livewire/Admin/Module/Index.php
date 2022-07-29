@@ -22,7 +22,7 @@ class Index extends ModalComponent
     }
     public function ChangeStatus($module_name)
     {
-        $module =  GetModule($module_name);
+        $module =  get_module($module_name);
         if ($module) {
             if ($module->isEnabled()) {
                 $module->setActive(false);

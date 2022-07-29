@@ -30,7 +30,6 @@ abstract class ModalComponent extends Component implements Contract
     public function viewModal($content = null, $footer = null, $header = null, $params = [])
     {
         if (isset($this->code_permission) && $this->code_permission != '') {
-            Log::info($this->code_permission);
             if (!Gate::check($this->code_permission, [auth()]))
                 return abort(403);
         }

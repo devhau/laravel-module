@@ -31,7 +31,7 @@ interface RepositoryInterface
     /**
      * Get modules as modules collection instance.
      *
-     * @return \Nwidart\Modules\Collection
+     * @return \DevHau\Modules\Collection
      */
     public function toCollection();
 
