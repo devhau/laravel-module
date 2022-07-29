@@ -3,6 +3,16 @@ var __webpack_exports__ = {};
 /*!*******************************!*\
   !*** ./resources/js/admin.js ***!
   \*******************************/
+var checkSidebarMini = function checkSidebarMini() {
+  if (localStorage.getItem('sidebar-mini') == 'true' && !document.querySelector('body').classList.contains('sidebar-mini')) {
+    document.querySelector('body').classList.add('sidebar-mini');
+  }
+
+  if (localStorage.getItem('sidebar-mini') != 'true' && document.querySelector('body').classList.contains('sidebar-mini')) {
+    document.querySelector('body').classList.remove('sidebar-mini');
+  }
+};
+
 var initAdmin = function initAdmin() {
   document.querySelectorAll('.sidebar-mini-btn').forEach(function (item) {
     if (item.getAttribute('sidebar-mini-btn') == 'true') return;
@@ -21,14 +31,7 @@ var initAdmin = function initAdmin() {
       e.preventDefault();
     });
   });
-
-  if (localStorage.getItem('sidebar-mini') == 'true' && !document.querySelector('body').classList.contains('sidebar-mini')) {
-    document.querySelector('body').classList.add('sidebar-mini');
-  }
-
-  if (localStorage.getItem('sidebar-mini') != 'true' && document.querySelector('body').classList.contains('sidebar-mini')) {
-    document.querySelector('body').classList.remove('sidebar-mini');
-  }
+  checkSidebarMini();
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -37,5 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   initAdmin();
 });
+checkSidebarMini();
 /******/ })()
 ;

@@ -51,7 +51,7 @@ html {
   position: relative;
 }
 .wrapper .main-sidebar {
-  transition: width 0.01s ease-in-out;
+  /* transition: width 0.01s ease-in-out;*/
   flex: none;
   width: 250px;
   height: inherit;
