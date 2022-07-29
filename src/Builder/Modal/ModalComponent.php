@@ -6,6 +6,7 @@ use DevHau\Modules\Livewire\Component;
 use DevHau\Modules\Builder\Modal\Contracts\ModalComponent as Contract;
 use DevHau\Modules\Theme;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 
 abstract class ModalComponent extends Component implements Contract
@@ -28,7 +29,8 @@ abstract class ModalComponent extends Component implements Contract
     }
     public function viewModal($content = null, $footer = null, $header = null, $params = [])
     {
-        if ($this->code_permission != '') {
+        if (isset($this->code_permission) && $this->code_permission != '') {
+            Log::info($this->code_permission);
             if (!Gate::check($this->code_permission, [auth()]))
                 return abort(403);
         }

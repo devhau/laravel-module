@@ -4,6 +4,9 @@ use DevHau\Modules\Builder\Modal\ModalSize;
 
 return [
     'model' => \DevHau\Modules\Models\ScheduleHistory::class,
+    'permission' => [
+        'view' => ''
+    ],
     'DisableModule' => true,
     'title' => 'Schedule History',
     'emptyData' => 'Không có dữ liệu',

@@ -36,7 +36,7 @@ return [
             ]
         ]
     ],
-    'formSize' => ModalSize::ExtraLarge,
+    'formSize' => ModalSize::FullscreenMd,
     'fields' => [
         [
             'field' => 'command',
