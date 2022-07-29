@@ -23,7 +23,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         if (!$this->app->runningInConsole()) {
             config('devhau-module.auth.permission', \DevHau\Modules\Models\Permission::class)::get()->map(function ($permission) {
-                Gate::define($permission->slug, function ($user) use ($permission) {
+                Gate::define($permission->slug, function ($user = null) use ($permission) {
+                    if (!$user) $user = auth();
                     return $user->hasPermissionTo($permission) || $user->isSuperAdmin();
                 });
             });

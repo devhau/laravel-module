@@ -19,6 +19,7 @@ return [
                 'title' => 'Cập nhật quyền',
                 'icon' => '<i class="bi bi-magic"></i>',
                 'type' => 'new',
+                'permission' => 'admin.module.load-permission',
                 'action' => function () {
                     return 'wire:click="updatePermission()"';
                 }

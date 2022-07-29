@@ -23,12 +23,14 @@ return [
             [
                 'title' => 'Run now',
                 'icon' => '<i class="bi bi-magic"></i>',
+                'permission' => 'admin.schedule.run-now',
                 'type' => 'update',
                 'action' => function ($id) {
                     return 'wire:click="RunNow(\'' . $id . '\')"';
                 }
             ], [
                 'title' => 'Lịch sử bot chạy',
+                'permission' => 'admin.schedule.view-history',
                 'icon' => '<i class="bi bi-magic"></i>',
                 'type' => 'new',
                 'action' => function () {

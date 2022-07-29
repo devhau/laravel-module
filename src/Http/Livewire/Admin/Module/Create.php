@@ -16,7 +16,7 @@ class Create extends ModalComponent
     }
     public function DoCreate()
     {
-        if (get_module($this->module_name)) {
+        if (module_by($this->module_name)) {
             $this->ShowMessage('Module đã tồn tại rồi');
             return;
         }

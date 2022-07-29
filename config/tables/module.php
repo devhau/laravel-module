@@ -31,14 +31,16 @@ return [
         'append' => [
             [
                 'title' => 'Tạo File',
+                'permission' => 'admin.module.add-file',
                 'icon' => '<i class="bi bi-magic"></i>',
                 'type' => 'update',
-                'class'=>'btn-primary',
+                'class' => 'btn-primary',
                 'action' => function ($id) {
                     return 'wire:openmodal="devhau-module::admin.module.create-file({\'module\':\'' . $id . '\'})"';
                 }
             ], [
                 'title' => 'Xóa module',
+                'permission' => 'admin.module.remove',
                 'icon' => '<i class="bi bi-eraser"></i>',
                 'type' => 'update',
                 'action' => function ($id) {
@@ -47,6 +49,7 @@ return [
             ],
             [
                 'title' => 'Tạo mới module',
+                'permission' => 'admin.module.add',
                 'icon' => '<i class="bi bi-folder-plus"></i>',
                 'class' => 'btn-primary',
                 'type' => 'new',
@@ -103,10 +106,17 @@ return [
                 ];
             },
             'funcCell' => function ($row, $column) {
-                if ($row[$column['field']] == 1) {
-                    return '<button wire:click="ChangeStatus(\'' . $row['name'] . '\')" class="btn btn-primary btn-sm text-nowrap">Kích hoạt</button>';
+                if (\Gate::check('admin.module.change-status')) {
+                    if ($row[$column['field']] == 1) {
+                        return '<button wire:click="ChangeStatus(\'' . $row['name'] . '\')" class="btn btn-primary btn-sm text-nowrap">Kích hoạt</button>';
+                    }
+                    return '<button wire:click="ChangeStatus(\'' . $row['name'] . '\')" class="btn btn-danger btn-sm text-nowrap">Chưa kích hoạt</button>';
+                } else {
+                    if ($row[$column['field']] == 1) {
+                        return 'Kích hoạt';
+                    }
+                    return 'Chưa kích hoạt';
                 }
-                return '<button wire:click="ChangeStatus(\'' . $row['name'] . '\')" class="btn btn-danger btn-sm text-nowrap">Chưa kích hoạt</button>';
             },
             'field' => 'status',
 

@@ -33,7 +33,8 @@ return [
             [
                 'title' => 'Phân quyền',
                 'icon' => '<i class="bi bi-magic"></i>',
-                'class'=>'btn-primary',
+                'permission' => 'admin.user.permission',
+                'class' => 'btn-primary',
                 'type' => 'update',
                 'action' => function ($id) {
                     return 'wire:openmodal="devhau-module::admin.user.permission({\'userId\':\'' . $id . '\'})"';
@@ -41,6 +42,7 @@ return [
             ], [
                 'title' => 'Quản lý quyền',
                 'icon' => '<i class="bi bi-magic"></i>',
+                'permission' => 'admin.permission',
                 'type' => 'new',
                 'action' => function () {
                     return 'wire:openmodal="devhau-module::admin.permission.index()"';

@@ -4,6 +4,7 @@ namespace DevHau\Modules\Traits;
 
 use DevHau\Modules\Builder\Modal\ModalSize;
 use DevHau\Modules\ModuleLoader;
+use Illuminate\Support\Facades\Gate;
 use Livewire\WithPagination;
 
 trait UseModuleIndex
@@ -72,7 +73,7 @@ trait UseModuleIndex
                         }
                         $buttonAppend = getValueByKey($option, 'action.append', []);
                         foreach ($buttonAppend as $button) {
-                            if (getValueByKey($button, 'type', '') == 'update') {
+                            if (getValueByKey($button, 'type', '') == 'update' && (!isset($button['permission']) || Gate::check($button['permission']))) {
                                 $html = $html . ' <button class="btn btn-sm  ' . getValueByKey($button, 'class', 'btn-danger') . ' " ' .  ($button['action']($row[getValueByKey($option, 'modalkey', 'id')], $row)) . '\'>' . getValueByKey($button, 'icon', '') . ' <span> ' . getValueByKey($button, 'title', '') . ' </span></button>';
                             }
                         }
@@ -156,22 +157,22 @@ trait UseModuleIndex
     }
     public function checkAdd(): bool
     {
-        return getValueByKey($this->getAction(), 'add', true);
+        return getValueByKey($this->getAction(), 'add', true) && Gate::check($this->code_permission . '.add');
     }
     protected function checkEdit()
     {
-        return getValueByKey($this->getAction(), 'edit', true);
+        return getValueByKey($this->getAction(), 'edit', true) && Gate::check($this->code_permission . '.edit');
     }
     protected function checkRemove()
     {
-        return getValueByKey($this->getAction(), 'delete', true);
+        return getValueByKey($this->getAction(), 'delete', true) && Gate::check($this->code_permission . '.delete');
     }
     protected function checkInportExcel()
     {
-        return getValueByKey($this->getAction(), 'inport', true);
+        return getValueByKey($this->getAction(), 'inport', true) && Gate::check($this->code_permission . '.inport');
     }
     protected function checkExportExcel()
     {
-        return getValueByKey($this->getAction(), 'export', true);
+        return getValueByKey($this->getAction(), 'export', true) && Gate::check($this->code_permission . '.export');
     }
 }

@@ -289,7 +289,7 @@ abstract class Module implements ArrayAccess
         $this->app['events']->dispatch(sprintf('modules.%s.' . $event, $this->getLowerName()), [$this]);
     }
     /**
-     * Register the aliases from this module.
+     * Register the aliases from this module.hr
      */
     abstract public function registerAliases(): void;
 
@@ -500,5 +500,9 @@ abstract class Module implements ArrayAccess
         if ($offset == 'status')
             return $this->isEnabled();
         return $this->get($offset, null);
+    }
+    public function getPermission()
+    {
+        return config($this->getLowerName() . '.permission') ?? [];
     }
 }

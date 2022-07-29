@@ -22,7 +22,7 @@ class Index extends ModalComponent
     }
     public function RemoveRow($module_name)
     {
-        $module =  get_module($module_name);
+        $module =  module_by($module_name);
         if ($module) {
             if ($module->delete()) {
                 $this->ShowMessage("$module_name đã xóa thành công");
@@ -32,7 +32,7 @@ class Index extends ModalComponent
     }
     public function ChangeStatus($module_name)
     {
-        $module =  get_module($module_name); 
+        $module =  module_by($module_name); 
         if ($module) {
             if ($module->isEnabled()) {
                 $module->setActive(false);

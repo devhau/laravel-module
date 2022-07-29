@@ -30,6 +30,8 @@ class PermissionLoader
             array_push($arrCode, "{$name}.add");
             array_push($arrCode, "{$name}.edit");
             array_push($arrCode, "{$name}.remove");
+            array_push($arrCode, "{$name}.inport");
+            array_push($arrCode, "{$name}.export");
         }
         foreach ($arrCode as $code) {
             if (!config('devhau-module.auth.permission', \DevHau\Modules\Models\Permission::class)::where('slug', $code)->exists()) {
@@ -53,6 +55,17 @@ class PermissionLoader
         $table = ModuleLoader::Table()->getData();
         foreach ($table as $key => $value) {
             self::SetPermission('admin.' . $key);
+        }
+        $temp = config('devhau-module.permission');
+        if ($temp != null) {
+            foreach ($temp as $key) {
+                self::SetPermission($key);
+            }
+        }
+        foreach (module_all() as $module) {
+            foreach ($module->getPermission() as $key) {
+                self::SetPermission($key);
+            }
         }
     }
 }

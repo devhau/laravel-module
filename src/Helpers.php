@@ -119,9 +119,15 @@ if (!function_exists('module_path')) {
     }
 }
 
-if (!function_exists('get_module')) {
-    function get_module($name)
+if (!function_exists('module_by')) {
+    function module_by($name)
     {
         return app('modules')->find($name);
+    }
+}
+if (!function_exists('module_all')) {
+    function module_all()
+    {
+        return app('modules')->all();
     }
 }

@@ -9,6 +9,15 @@ use DevHau\Modules\Commands;
 use DevHau\Modules\Models;
 
 return [
+    'permission' => [
+        'admin.schedule.view-history',
+        'admin.schedule.run-now',
+        'admin.module.add-file',
+        'admin.module.change-status',
+        'admin.role.permission',
+        'admin.user.permission',
+        'admin.module.load-permission',
+    ],
     'auth' => [
         'user' => Models\User::class,
         'role' => Models\Role::class,
