@@ -1,5 +1,6 @@
 <?php
 
+use DevHau\Modules\Builder\Form\FieldType;
 use DevHau\Modules\Builder\Modal\ModalSize;
 
 return [
@@ -99,9 +100,22 @@ return [
             'view' => false
         ],
         [
+            'fieldType' => FieldType::Dropdown,
+            'default' => 1,
+            'funcData' => function () {
+                return [
+                    [
+                        'id' => 0,
+                        'text' => 'Chưa kích hoạt'
+                    ],
+                    [
+                        'id' => 1,
+                        'text' => 'Kích hoạt'
+                    ]
+                ];
+            },
             'field' => 'status',
-            'view' => false,
-            'default' => true
+            'title' => 'Trạng thái',
         ],
         [
             'field' => 'environments',

@@ -35,7 +35,6 @@ return [
     ],
     'formSize' => ModalSize::Small,
     'fields' => [
-        
         [
             'field' => 'slug',
             'title' => 'slug'
