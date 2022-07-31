@@ -82,7 +82,11 @@ if (!function_exists('setting')) {
 if (!function_exists('CronNextRunDate')) {
     function CronNextRunDate($expression)
     {
-        return (new Carbon\Carbon(((new Cron\CronExpression($expression))->getNextRunDate())))->format('Y-m-d H:i:s');
+        try {
+            return (new Carbon\Carbon(((new Cron\CronExpression($expression))->getNextRunDate())))->format('Y-m-d H:i:s');
+        } catch (\Exception) {
+            return $expression . ' is error';
+        }
     }
 }
 if (!function_exists('loadFileReturn')) {

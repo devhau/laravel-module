@@ -32,6 +32,10 @@ return [
             'title' => 'Nhóm'
         ],
         [
+            'field' => 'slug',
+            'title' => 'slug'
+        ],
+        [
             'field' => 'name',
             'title' => 'Tên Quyền'
         ],
