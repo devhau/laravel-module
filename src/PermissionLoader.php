@@ -27,7 +27,7 @@ class PermissionLoader
         }
         if ($check) return;
         $arrCode = [$name];
-        if ($router != null && ($router == 1 || (!str_contains($router->action['controller'], '@') && in_array(UseModuleIndex::class, class_uses_recursive($router->action['controller']))))) {
+        if ($router != null && ((is_numeric($router) && $router == 1) || (!str_contains($router->action['controller'], '@') && in_array(UseModuleIndex::class, class_uses_recursive($router->action['controller']))))) {
             array_push($arrCode, "{$name}.add");
             array_push($arrCode, "{$name}.edit");
             array_push($arrCode, "{$name}.remove");
