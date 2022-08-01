@@ -19,5 +19,6 @@ class FieldType
     public const Tag = 12;
     public const File = 13;
     public const Image = 14;
+    public const Cron = 15;
     public const includeInput = 9999;
 }

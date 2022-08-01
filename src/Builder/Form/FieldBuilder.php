@@ -132,6 +132,9 @@ class FieldBuilder
                 </div>';
                 break;
             case FieldType::Text:
+                echo '<input type="text" ' . (getValueByKey($this->option, 'attr', '')) . ' class="form-control text-warning fw-bold fs-6" id="input-' . $this->option['field'] . '" ' .  $this->getModelField() . '" style="background-color: rgb(56, 43, 95);"/>';
+                break;
+            case FieldType::Text:
             default:
                 echo '<input type="text" ' . (getValueByKey($this->option, 'attr', '')) . ' class="form-control" id="input-' . $this->option['field'] . '" ' .  $this->getModelField() . '"/>';
                 break;
