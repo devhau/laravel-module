@@ -15,6 +15,7 @@ class PermissionLoader
         'livewire.',
         AuthServiceProvider::DashboardRoute,
     ];
+    private static $permisisonCode = [];
     public static function SetPermission($name, $router = null)
     {
         $check = false;
@@ -26,7 +27,7 @@ class PermissionLoader
         }
         if ($check) return;
         $arrCode = [$name];
-        if ($router != null && !str_contains($router->action['controller'], '@') && in_array(UseModuleIndex::class, class_uses_recursive($router->action['controller']))) {
+        if ($router != null && ($router == 1 || (!str_contains($router->action['controller'], '@') && in_array(UseModuleIndex::class, class_uses_recursive($router->action['controller']))))) {
             array_push($arrCode, "{$name}.add");
             array_push($arrCode, "{$name}.edit");
             array_push($arrCode, "{$name}.remove");
@@ -34,6 +35,7 @@ class PermissionLoader
             array_push($arrCode, "{$name}.export");
         }
         foreach ($arrCode as $code) {
+            self::$permisisonCode[] = $code;
             if (!config('devhau-module.auth.permission', \DevHau\Modules\Models\Permission::class)::where('slug', $code)->exists()) {
                 config('devhau-module.auth.permission', \DevHau\Modules\Models\Permission::class)::create([
                     'name' => $code,
@@ -46,7 +48,8 @@ class PermissionLoader
     public static function UpdatePermission()
     {
         $routeCollection = Route::getRoutes();
-        config('devhau-module.auth.permission', \DevHau\Modules\Models\Permission::class)::query()->delete();
+        self::$permisisonCode = [];
+
         foreach ($routeCollection as $value) {
             $name = $value->getName();
             if (!$name) continue;
@@ -54,7 +57,7 @@ class PermissionLoader
         }
         $table = ModuleLoader::Table()->getData();
         foreach ($table as $key => $value) {
-            self::SetPermission('admin.' . $key);
+            self::SetPermission('admin.' . $key, 1);
         }
         $temp = config('devhau-module.permission');
         if ($temp != null) {
@@ -67,5 +70,7 @@ class PermissionLoader
                 self::SetPermission($key);
             }
         }
+        config('devhau-module.auth.permission', \DevHau\Modules\Models\Permission::class)::query()->whereNotIn('slug', self::$permisisonCode)->delete();
+        self::$permisisonCode = [];
     }
 }
