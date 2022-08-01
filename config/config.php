@@ -174,6 +174,7 @@ return [
     |
     */
     'commands' => [
+        Commands\ClearAllCache::class,
         Commands\CommandMakeCommand::class,
         Commands\ComponentClassMakeCommand::class,
         Commands\ComponentViewMakeCommand::class,
