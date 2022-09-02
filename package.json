@@ -16,26 +16,12 @@
   "author": "nguyen van hau",
   "license": "ISC",
   "devDependencies": {
-    "axios": "^0.25",
     "laravel-mix": "^6.0.48",
-    "lodash": "^4.17.19",
     "postcss": "^8.1.14",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.52.2",
     "sass-loader": "^12.1.0",
     "webpack": "^5.73.0"
   },
-  "dependencies": {
-    "@popperjs/core": "^2.11.5",
-    "@yaireo/tagify": "^4.12.0",
-    "alpinejs": "^3.10.2",
-    "bootstrap": "^5.1.3",
-    "flatpickr": "^4.6.13",
-    "postcss": "^8.4.14",
-    "quill": "^1.3.7",
-    "quill-image-module": "^1.0.3",
-    "simplebar": "^5.3.8",
-    "sweetalert2": "^11.4.17",
-    "turbolinks": "^5.2.0"
-  }
+  "dependencies": {}
 }

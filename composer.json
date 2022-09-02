@@ -17,9 +17,7 @@
     ],
     "require": {
         "php": "^7.4|^8.1",
-        "livewire/livewire": "^2.10",
-        "maatwebsite/excel": "^3.1",
-        "phpoffice/phpspreadsheet": "^1.23"
+        "livewire/livewire": "^2.10"
     },
     "autoload": {
         "psr-4": {
@@ -41,13 +39,11 @@
     "extra": {
         "laravel": {
             "providers": [
-				"Livewire\\LivewireServiceProvider",
-                "DevHau\\Modules\\LaravelModulesServiceProvider",
-                "Maatwebsite\\Excel\\ExcelServiceProvider"
+                "Livewire\\LivewireServiceProvider",
+                "DevHau\\Modules\\LaravelModulesServiceProvider"
             ],
             "aliases": {
-                "Excel": "Maatwebsite\\Excel\\Facades\\Excel",
-				"Livewire": "Livewire\\Livewire"
+                "Livewire": "Livewire\\Livewire"
             }
         }
     }
