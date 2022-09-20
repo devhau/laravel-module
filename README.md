@@ -24,14 +24,7 @@ composer require devhau/laravel-module
 
 ```bash
 composer test
-```
-### Use Admin Template
-```bash
-php artisan migrate
-```
-```bash
-php artisan db:seed --class="DevHau\Modules\Database\Seeders\AuthTableSeeder"
-```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
