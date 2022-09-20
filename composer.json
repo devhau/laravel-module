@@ -16,8 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.1",
-        "livewire/livewire": "^2.10"
+        "php": "^7.4|^8.1"
     },
     "autoload": {
         "psr-4": {
@@ -39,12 +38,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Livewire\\LivewireServiceProvider",
                 "DevHau\\Modules\\LaravelModulesServiceProvider"
-            ],
-            "aliases": {
-                "Livewire": "Livewire\\Livewire"
-            }
+            ]
         }
     }
 }

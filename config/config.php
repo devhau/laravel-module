@@ -9,33 +9,9 @@ use DevHau\Modules\Commands;
 use DevHau\Modules\Models;
 
 return [
-    'permission' => [
-        'admin.schedule.view-history',
-        'admin.schedule.run-now',
-        'admin.module.add-file',
-        'admin.module.change-status',
-        'admin.role.permission',
-        'admin.user.permission',
-        'admin.module.load-permission',
-    ],
-    'auth' => [
-        'user' => Models\User::class,
-        'role' => Models\Role::class,
-        'permission' => Models\Permission::class
-    ],
-    'router' => [
-        'admin' => [
-            'page' => DevHau\Modules\Http\Livewire\Admin\Dashboard\Index::class,
-            'prefix' => 'admincp',
-            'middleware' => ['web', 'theme.admin']
-        ],
-        'home' => [
-            'page' => DevHau\Modules\Http\Livewire\Home\Index::class,
-            'prefix' => '/',
-            'middleware' => ['web', 'theme.home']
-        ]
-    ],
+
     'livewire' => [
+        'enabled'=>false,
         'namespace' => 'Http\\Livewire'
     ],
     /*

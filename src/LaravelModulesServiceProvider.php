@@ -3,8 +3,6 @@
 namespace DevHau\Modules;
 
 use DevHau\Modules\Exceptions\InvalidActivatorClass;
-use DevHau\Modules\Livewire\ComponentLoader;
-use DevHau\Modules\Providers\AdminServiceProvider;
 
 class LaravelModulesServiceProvider extends ModuleServiceProvider
 {
@@ -24,7 +22,6 @@ class LaravelModulesServiceProvider extends ModuleServiceProvider
     public function register()
     {
         include_once __DIR__ . '/Helpers.php';
-        $this->app->register(AdminServiceProvider::class);
         $this->registerServices();
         $this->setupStubPath();
         $this->registerProviders();

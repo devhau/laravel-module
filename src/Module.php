@@ -11,9 +11,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\Translation\Translator;
 use DevHau\Modules\Contracts\ActivatorInterface;
-use DevHau\Modules\Livewire\ComponentLoader;
+use DevHau\Modules\LivewireLoader;
 
-use function PHPUnit\Framework\returnSelf;
 
 abstract class Module implements ArrayAccess
 {
@@ -267,7 +266,9 @@ abstract class Module implements ArrayAccess
     public function register(): void
     {
         $this->registerModules();
-        $this->registerLivewire();
+        if (config('modules.livewire.enabled', false) === true){
+            $this->registerLivewire();
+        } 
         $this->registerAliases();
 
         $this->registerProviders();
@@ -310,7 +311,7 @@ abstract class Module implements ArrayAccess
     }
     public function registerLivewire(): void
     {
-        ComponentLoader::Register($this->getPath(), $this->getNameSpace(), $this->getLowerName());
+        LivewireLoader::Register($this->getPath(), $this->getNameSpace(), $this->getLowerName());
     }
     /**
      * Register the files from this module.

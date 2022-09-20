@@ -1,6 +1,6 @@
 <?php
 
-namespace DevHau\Modules\Livewire;
+namespace DevHau\Modules;
 
 use Symfony\Component\Finder\SplFileInfo;
 use Illuminate\Filesystem\Filesystem;
@@ -10,7 +10,7 @@ use Livewire\Component;
 use Livewire\Livewire;
 use ReflectionClass;
 
-class ComponentLoader
+class LivewireLoader
 {
     private static $paths = [];
     public static function Register($path, $namespace, $aliasPrefix = '')
