@@ -7,6 +7,7 @@ use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\ProviderRepository;
 use Illuminate\Support\Str;
 use DevHau\Modules\Module as BaseModule;
+use DevHau\Modules\LivewireLoader;
 
 class Module extends BaseModule
 {
@@ -42,5 +43,16 @@ class Module extends BaseModule
         foreach ($this->get('aliases', []) as $aliasName => $aliasClass) {
             $loader->alias($aliasName, $aliasClass);
         }
+    }
+    public function registerModules(): void
+    {
+        parent::registerModules();
+        if (config('modules.livewire.enabled', false) === true && class_exists('\\Livewire\\Livewire')) {
+            $this->registerLivewire();
+        }
+    }
+    public function registerLivewire(): void
+    {
+        LivewireLoader::Register($this->getPath(), $this->getNameSpace(), $this->getLowerName());
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DevHau\Modules;
+namespace DevHau\Modules\Laravel;
 
 use Symfony\Component\Finder\SplFileInfo;
 use Illuminate\Filesystem\Filesystem;
@@ -15,7 +15,7 @@ class LivewireLoader
     private static $paths = [];
     public static function Register($path, $namespace, $aliasPrefix = '')
     {
-        $namespaceLivewire = config('devhau-module.livewire.namespace', 'Http\\Livewire');
+        $namespaceLivewire = config('modules.livewire.namespace', 'Http\\Livewire');
         $LivewireNamespace = $namespace . '\\' . $namespaceLivewire;
         if ($aliasPrefix) {
             $aliasPrefix = strtolower($aliasPrefix) . '::';

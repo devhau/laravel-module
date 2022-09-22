@@ -4,24 +4,10 @@
   "description": "[![Latest Version on Packagist](https://img.shields.io/packagist/v/devhau/laravel-module.svg?style=flat-square)](https://packagist.org/packages/devhau/laravel-module) [![Total Downloads](https://img.shields.io/packagist/dt/devhau/laravel-module.svg?style=flat-square)](https://packagist.org/packages/devhau/laravel-module) ![GitHub Actions](https://github.com/devhau/laravel-module/actions/workflows/main.yml/badge.svg)",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run development",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production"
   },
   "keywords": [],
   "author": "nguyen van hau",
   "license": "ISC",
-  "devDependencies": {
-    "laravel-mix": "^6.0.48",
-    "postcss": "^8.1.14",
-    "resolve-url-loader": "^5.0.0",
-    "sass": "^1.52.2",
-    "sass-loader": "^12.1.0",
-    "webpack": "^5.73.0"
-  },
+  "devDependencies": {},
   "dependencies": {}
 }

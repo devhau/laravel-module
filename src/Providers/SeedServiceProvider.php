@@ -75,7 +75,6 @@ class SeedServiceProvider extends ServiceProvider
      */
     protected function addSeedsFrom($seeds_path)
     {
-        echo $seeds_path;
         $file_names = glob($seeds_path . '/*.php');
         foreach ($file_names as $filename) {
             $classes = $this->getClassesFromFile($filename);
